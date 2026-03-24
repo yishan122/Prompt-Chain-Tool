@@ -1,0 +1,73 @@
+import Link from "next/link";
+import { requireMatrixAdmin } from "@/lib/auth";
+
+export default async function FlavorsPage() {
+  const { supabase } = await requireMatrixAdmin();
+
+  const { data: flavors } = await supabase
+    .from("humor_flavors")
+    .select("*")
+    .order("created_datetime_utc", { ascending: false });
+
+  return (
+    <main className="space-y-6">
+      <section className="card">
+        <div className="card-body space-y-4">
+          <div>
+            <h2 className="section-title text-xl">Create humor flavor</h2>
+            <p className="subtle mt-1">
+              Add a new flavor to manage prompt-chain steps and test captions.
+            </p>
+          </div>
+
+          <form action="/api/flavors" method="post" className="space-y-3">
+            <input
+              name="name"
+              placeholder="Flavor name"
+              required
+              className="input"
+            />
+            <textarea
+              name="description"
+              placeholder="Description"
+              className="textarea"
+            />
+            <div className="flex justify-end">
+              <button className="btn-primary">Create</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        {flavors?.map((flavor) => (
+          <div key={flavor.id} className="card">
+            <div className="card-body flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-white">
+                  {flavor.slug}
+                </h3>
+                <p className="subtle max-w-3xl">
+                  {flavor.description || "No description"}
+                </p>
+              </div>
+
+              <div className="flex gap-2">
+                <Link
+                  href={`/admin/flavors/${flavor.id}`}
+                  className="btn-secondary"
+                >
+                  Open
+                </Link>
+                <form action={`/api/flavors/${flavor.id}`} method="post">
+                  <input type="hidden" name="_method" value="delete" />
+                  <button className="btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+    </main>
+  );
+}
