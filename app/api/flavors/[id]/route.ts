@@ -54,6 +54,84 @@ export async function POST(
 
   const supabase = await createSupabaseServerClient();
 
+  if (method === "duplicate") {
+    const { data: sourceFlavor, error: sourceFlavorError } = await supabase
+      .from("humor_flavors")
+      .select("id, slug, description")
+      .eq("id", id)
+      .single();
+
+    if (sourceFlavorError || !sourceFlavor) {
+      return NextResponse.json(
+        { error: sourceFlavorError?.message ?? "Flavor not found" },
+        { status: 404 }
+      );
+    }
+
+    const duplicatedSlug = await makeUniqueSlug(
+      supabase,
+      `${sourceFlavor.slug} copy`,
+      ""
+    );
+
+    const { data: newFlavor, error: newFlavorError } = await supabase
+      .from("humor_flavors")
+      .insert({
+        slug: duplicatedSlug,
+        description: sourceFlavor.description,
+      })
+      .select("id")
+      .single();
+
+    if (newFlavorError || !newFlavor) {
+      return NextResponse.json(
+        { error: newFlavorError?.message ?? "Failed to create duplicate" },
+        { status: 500 }
+      );
+    }
+
+    const { data: sourceSteps, error: sourceStepsError } = await supabase
+      .from("humor_flavor_steps")
+      .select(
+        "order_by, description, llm_user_prompt, llm_system_prompt, llm_model_id, llm_input_type_id, llm_output_type_id, humor_flavor_step_type_id"
+      )
+      .eq("humor_flavor_id", id)
+      .order("order_by", { ascending: true });
+
+    if (sourceStepsError) {
+      return NextResponse.json(
+        { error: sourceStepsError.message },
+        { status: 500 }
+      );
+    }
+
+    if (sourceSteps && sourceSteps.length > 0) {
+      const copiedSteps = sourceSteps.map((step) => ({
+        humor_flavor_id: newFlavor.id,
+        order_by: step.order_by,
+        description: step.description,
+        llm_user_prompt: step.llm_user_prompt,
+        llm_system_prompt: step.llm_system_prompt,
+        llm_model_id: step.llm_model_id,
+        llm_input_type_id: step.llm_input_type_id,
+        llm_output_type_id: step.llm_output_type_id,
+        humor_flavor_step_type_id: step.humor_flavor_step_type_id,
+      }));
+
+      const { error: copiedStepsError } = await supabase
+        .from("humor_flavor_steps")
+        .insert(copiedSteps);
+
+      if (copiedStepsError) {
+        return NextResponse.json({ error: copiedStepsError.message }, { status: 500 });
+      }
+    }
+
+    return NextResponse.redirect(
+      new URL(`/admin/flavors/${newFlavor.id}`, request.url)
+    );
+  }
+
   if (method === "patch") {
     const name = String(formData.get("name") ?? "").trim();
     const description = String(formData.get("description") ?? "").trim();
