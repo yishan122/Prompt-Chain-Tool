@@ -5,10 +5,10 @@ import { DeleteFlavorButton } from "@/components/delete-flavor-button";
 export default async function FlavorsPage() {
   const { supabase } = await requireMatrixAdmin();
 
-  const { data: flavors } = await supabase
+  const { data: flavors, error: flavorsError } = await supabase
     .from("humor_flavors")
     .select("*")
-    .order("created_datetime_utc", { ascending: false });
+    .order("id", { ascending: false });
 
   return (
     <main className="space-y-6">
@@ -45,6 +45,16 @@ export default async function FlavorsPage() {
       </section>
 
       <section className="space-y-4">
+        {flavorsError && (
+          <div className="card">
+            <div className="card-body">
+              <p className="text-red-300">
+                Failed to load flavors: {flavorsError.message}
+              </p>
+            </div>
+          </div>
+        )}
+
         {!flavors?.length && (
           <div className="card">
             <div className="card-body">
@@ -77,16 +87,7 @@ export default async function FlavorsPage() {
                 </Link>
                 <form action={`/api/flavors/${flavor.id}`} method="post">
                   <input type="hidden" name="_method" value="delete" />
-                  <button
-                    className="btn-danger"
-                    onClick={(event) => {
-                      if (!confirm("Delete this humor flavor and its steps?")) {
-                        event.preventDefault();
-                      }
-                    }}
-                  >
-                    Delete
-                  </button>
+                  <DeleteFlavorButton />
                 </form>
               </div>
             </div>
