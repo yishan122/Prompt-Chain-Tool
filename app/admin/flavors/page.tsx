@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { requireMatrixAdmin } from "@/lib/auth";
+import { DeleteFlavorButton } from "@/components/delete-flavor-button";
 
 export default async function FlavorsPage() {
   const { supabase } = await requireMatrixAdmin();
 
-  const { data: flavors } = await supabase
+  const { data: flavors, error: flavorsError } = await supabase
     .from("humor_flavors")
     .select("*")
-    .order("created_datetime_utc", { ascending: false });
+    .order("id", { ascending: false });
 
   return (
     <main className="space-y-6">
@@ -17,6 +18,10 @@ export default async function FlavorsPage() {
             <h2 className="section-title text-xl">Create humor flavor</h2>
             <p className="subtle mt-1">
               Add a new flavor to manage prompt-chain steps and test captions.
+            </p>
+            <p className="subtle mt-2 text-xs">
+              Tip: Start by creating a flavor, then click <strong>Open</strong> to
+              add steps and run a test.
             </p>
           </div>
 
@@ -40,6 +45,27 @@ export default async function FlavorsPage() {
       </section>
 
       <section className="space-y-4">
+        {flavorsError && (
+          <div className="card">
+            <div className="card-body">
+              <p className="text-red-300">
+                Failed to load flavors: {flavorsError.message}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {!flavors?.length && (
+          <div className="card">
+            <div className="card-body">
+              <p className="subtle">
+                No humor flavors yet. Create your first flavor above to get
+                started.
+              </p>
+            </div>
+          </div>
+        )}
+
         {flavors?.map((flavor) => (
           <div key={flavor.id} className="card">
             <div className="card-body flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -61,7 +87,7 @@ export default async function FlavorsPage() {
                 </Link>
                 <form action={`/api/flavors/${flavor.id}`} method="post">
                   <input type="hidden" name="_method" value="delete" />
-                  <button className="btn-danger">Delete</button>
+                  <DeleteFlavorButton />
                 </form>
               </div>
             </div>
