@@ -1,0 +1,11 @@
+Week 12: Admin & Prompt Tool Polish
+Assignment
+Due date
+4/17/2026, 3:30:00 PM EDT
+Update your admin app to show statistics about the captions that users are rating.
+
+
+Update your prompt tool to add the ability to duplicate a humor flavor and it’s related steps with a new, unique name.
+
+
+Submit the latest commit-specific URL of your three Vercel apps (your caption creation and rating app, your admin area app, and your prompt chain tool app) in the “Submissions” section.

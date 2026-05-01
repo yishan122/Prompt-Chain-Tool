@@ -1,0 +1,212 @@
+Week 9: User Testing
+Assignment
+Due date
+3/27/2026, 3:30:00 PM EDT
+Assignment: In-Person User Study and Functionality Review
+
+Overview
+
+The purpose of this assignment is to evaluate the functionality and usability of your generative joke application (Project 1) through direct, in-person observation of real users.
+
+
+You will conduct three (3) in-person user studies where you observe participants interacting with your application. Your goal is to understand how users navigate, interpret, and use your application.
+
+
+Important: This assignment evaluates the application’s functionality and user experience, NOT the quality of the jokes. Do not include feedback about whether the jokes are funny, clever, offensive, or enjoyable. Focus only on usability, interaction, and functionality.
+
+
+You must document your findings in Markdown format and paste your write-up into the submission box. Your report should be clearly organized, structured, and easy to read.
+
+
+
+Requirements
+
+You must:
+
+
+
+Conduct 3 separate user studies
+
+Conduct each study in person
+
+Actively observe the user while they use your application
+
+Watch the user interact with the application in real time
+
+Write your report in Markdown
+
+Submit it in the Submissions section
+
+Keep your report organized, clearly structured, and readable
+
+
+Remote studies, recorded sessions, or unobserved usage are not allowed.
+
+
+
+What to Record for Each User Study
+
+Create a separate section for each of the 3 users. For each user study, include the following:
+
+
+
+1. User Information
+
+Include:
+
+
+
+Your relationship to the user
+
+(example: friend, classmate, family member, acquaintance, stranger)
+
+Whether the user has used your app before
+
+(none, minimal, moderate, extensive)
+
+Whether the user has experience with similar applications (if known)
+
+
+
+2. Observation Context
+
+Describe the study setup:
+
+
+
+Where the study took place
+
+What device was used (laptop, phone, tablet, etc.)
+
+What instructions you gave the user (if any)
+
+What tasks you asked the user to perform, or whether you allowed free exploration
+
+
+
+3. Three Things the User Liked (Functionality Only)
+
+List at least three specific positive observations related to usability or functionality.
+
+
+Examples:
+
+
+
+The interface was easy to understand
+
+Buttons were clearly labeled
+
+Navigation was intuitive
+
+The app responded quickly
+
+
+Do not include statements about joke quality.
+
+
+
+4. Three Areas for Improvement
+
+List at least three specific areas where the app could be improved.
+
+
+Examples:
+
+
+
+User was unsure where to click first
+
+A feature was difficult to find
+
+Instructions were unclear
+
+User misunderstood how something worked
+
+
+Be specific and actionable.
+
+
+
+5. Observed Friction or Confusion
+
+Describe any friction you observed, such as:
+
+
+
+Hesitation before clicking
+
+Misclicks or incorrect navigation
+
+User confusion
+
+User asking questions
+
+User getting stuck
+
+User not noticing important features
+
+
+Focus on what you observed.
+
+
+
+6. Behavioral Observations
+
+Describe what the user actually did, including:
+
+
+
+Where they looked first
+
+What actions they took
+
+Whether they explored or waited for guidance
+
+Whether they missed or ignored features
+
+Whether they hesitated or seemed confident
+
+
+Focus on objective observations, not just their verbal feedback.
+
+
+
+7. User Quotes (Optional but Recommended)
+
+Include 1–3 quotes related to usability or functionality.
+
+
+Examples:
+
+
+
+“I don’t know what this button does.”
+
+“This was easier than I expected.”
+
+
+Do not include quotes evaluating joke quality.
+
+
+
+Final Summary (After All 3 Studies)
+
+After completing all three user studies, write a summary section reflecting on the overall findings from your observations.
+
+
+In this summary, include:
+
+
+
+Things you learned from observing users
+
+Things you found surprising
+
+Patterns you noticed across multiple users
+
+At least three specific improvements you plan to make to your application based on this study
+
+
+Be specific and connect your planned improvements directly to your observations.
+

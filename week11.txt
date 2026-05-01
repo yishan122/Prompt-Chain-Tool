@@ -1,0 +1,29 @@
+Week 11: Data Collection
+Assignment
+Due date
+4/10/2026, 3:30:00 PM EDT
+For this assignment, please refer to the feedback markdown you submitted in Assignment #9.
+
+
+Deliverables:
+
+
+
+Implement improvements based on feedback.
+
+
+Make changes to your caption ranking app that is directly motivated by user feedback. Your changes must clearly address real problems that users experienced. Avoid making arbitrary feature additions that are not tied to observed feedback.
+
+
+
+Write a summary of your changes.
+
+
+Document the changes you made to your application and why. Submit that below along with your Vercel links.
+
+
+
+Submission
+
+
+Submit the latest commit-specific URL of your three Vercel apps (your caption creation and rating app, your admin area app, and your prompt chain tool app) in the “Submissions” section. Also, submit your short report of changes.

@@ -1,0 +1,76 @@
+Week 8: Prompt Chain Tool
+Assignment
+Due date
+3/24/2026, 3:30:00 PM EDT
+For this project, you’ll create a tool to manage humor flavors and humor flavor steps.
+
+
+Create a new GitHub repository and new Vercel project.
+
+
+The goal is to create a prompt chain tool that can:
+
+
+
+Create new humor flavors
+
+Create new steps for humor flavors
+
+Edit steps for humor flavors
+
+Reorder the steps of the humor flavor
+
+Generate captions using an image test set
+
+
+Use our REST API (api.almostcrackd.ai) from Assignment 5 to create captions using a given humor flavor in your prompt chain tool.
+
+
+A humor flavor is a set of steps that run in specific order to create captions from an input image.
+
+
+An example of a set of steps could be:
+
+
+
+Take in an image and output a description it in text.
+
+Take output from step 1 and output something funny about it.
+
+Take the output from step 2 and output five short, funny captions.
+
+
+You’ll want to design an interface that can:
+
+
+
+only work if the user is logged in as profiles.is_superadmin==TRUE or profiles.is_matrix_admin==TRUE
+
+create a humor flavor
+
+update a humor flavor
+
+delete a humor flavor
+
+create a humor flavor step
+
+update a humor flavor step
+
+delete a humor flavor step
+
+reorder a humor flavor step (move step 2 to step 1, etc)
+
+read the captions produced by a specific humor flavor
+
+support dark mode / light mode / system default mode
+
+test a humor flavor by generating captions using the REST API
+
+
+Turn off Vercel “deployment protection” so that you can view your page in Incognito Mode.
+
+
+Submit the latest commit-specific URL of your three Vercel apps (your caption creation and rating app, your admin area app, and your prompt chain tool app) in the “Submissions” section.
+
+
+Complete all humorstudy.org ratings for the week.

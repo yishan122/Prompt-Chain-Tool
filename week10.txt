@@ -1,0 +1,12 @@
+Week 10 Managing Your Own Humor Flavor
+Assignment
+Due date
+432026, 33000 PM EDT
+Create and test your own humor flavor using your own humor flavor testing tool.
+
+
+Submit the latest commit-specific URL of your three Vercel apps (your caption creation and rating app, your admin area app, and your prompt chain tool app) in the “Submissions” section.
+
+
+Also include the name of the humor flavor you created in the staging environment and five of the funniest captions it created along with a short description of the image for the caption.
+
