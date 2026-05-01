@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireMatrixAdmin } from "@/lib/auth";
+import { DeleteFlavorButton } from "@/components/delete-flavor-button";
 
 export default async function FlavorsPage() {
   const { supabase } = await requireMatrixAdmin();
