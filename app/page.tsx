@@ -16,7 +16,7 @@ export default async function HomePage() {
         <section className="card" style={{ maxWidth: 900 }}>
           <div className="card-body" style={{ display: "grid", gap: 16 }}>
             <div>
-              <h1 className="section-title">Week 8 Prompt Chain Tool</h1>
+              <h1 className="section-title">Prompt Chain Tool</h1>
               <p className="subtle" style={{ marginTop: 8 }}>
                 Manage humor flavors, steps, and test caption generation.
               </p>
