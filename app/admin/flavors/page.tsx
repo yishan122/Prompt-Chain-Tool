@@ -77,7 +77,16 @@ export default async function FlavorsPage() {
                 </Link>
                 <form action={`/api/flavors/${flavor.id}`} method="post">
                   <input type="hidden" name="_method" value="delete" />
-                  <DeleteFlavorButton />
+                  <button
+                    className="btn-danger"
+                    onClick={(event) => {
+                      if (!confirm("Delete this humor flavor and its steps?")) {
+                        event.preventDefault();
+                      }
+                    }}
+                  >
+                    Delete
+                  </button>
                 </form>
               </div>
             </div>
